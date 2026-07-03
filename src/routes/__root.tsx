@@ -77,13 +77,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ULMS — University Library Management System" },
+      { title: "DCCLMS — Dhaka City College Library Management System" },
       {
         name: "description",
         content:
-          "Manage books, borrow, returns, fines, and library operations for your university with ULMS.",
+          "Manage books, borrow, returns, fines, and library operations for Dhaka City College with DCCLMS.",
       },
-      { property: "og:title", content: "ULMS — University Library Management System" },
+      { property: "og:title", content: "DCCLMS — Dhaka City College Library Management System" },
       {
         property: "og:description",
         content: "A modern, secure library management system for universities.",

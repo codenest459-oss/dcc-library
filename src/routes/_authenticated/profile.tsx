@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/select";
 
 export const Route = createFileRoute("/_authenticated/profile")({
-  head: () => ({ meta: [{ title: "Profile — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Profile — DCCLMS" }] }),
   component: Profile,
 });
 

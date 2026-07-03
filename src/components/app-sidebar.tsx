@@ -62,7 +62,7 @@ export function AppSidebar({ roles }: { roles: AppRole[] }) {
             <Library className="h-4 w-4" />
           </div>
           <div className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold">ULMS</span>
+            <span className="text-sm font-semibold">DCCLMS</span>
             <span className="text-xs text-muted-foreground">University Library</span>
           </div>
         </div>

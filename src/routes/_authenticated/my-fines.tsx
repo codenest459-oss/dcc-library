@@ -10,7 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { EmptyState } from "@/components/empty-state";
 
 export const Route = createFileRoute("/_authenticated/my-fines")({
-  head: () => ({ meta: [{ title: "My fines — ULMS" }] }),
+  head: () => ({ meta: [{ title: "My fines — DCCLMS" }] }),
   component: MyFines,
 });
 

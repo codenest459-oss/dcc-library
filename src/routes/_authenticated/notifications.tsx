@@ -10,7 +10,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Badge } from "@/components/ui/badge";
 
 export const Route = createFileRoute("/_authenticated/notifications")({
-  head: () => ({ meta: [{ title: "Notifications — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Notifications — DCCLMS" }] }),
   component: NotificationsPage,
 });
 

@@ -20,7 +20,7 @@ import { Badge } from "@/components/ui/badge";
 import { format } from "date-fns";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Dashboard — DCCLMS" }] }),
   component: Dashboard,
 });
 
