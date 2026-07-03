@@ -90,6 +90,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "DCCLMS — Dhaka City College Library Management System" },
+      { name: "description", content: "The modern operating system
+for the Dhaka City College library" },
+      { property: "og:description", content: "The modern operating system
+for the Dhaka City College library" },
+      { name: "twitter:description", content: "The modern operating system
+for the Dhaka City College library" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7pqr61kTx2hxpJ949p50pCZRXkD2/social-images/social-1783090526716-Screenshot_2026-07-03_205500.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/7pqr61kTx2hxpJ949p50pCZRXkD2/social-images/social-1783090526716-Screenshot_2026-07-03_205500.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
