@@ -17,7 +17,7 @@ function Landing() {
             <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
               <Library className="h-4 w-4" />
             </div>
-            <span className="text-sm font-semibold">ULMS</span>
+            <span className="text-sm font-semibold">DCCLMS</span>
           </div>
           <div className="flex items-center gap-2">
             <Link to="/auth">
@@ -34,17 +34,13 @@ function Landing() {
 
       {/* Hero */}
       <section className="mx-auto max-w-6xl px-6 py-24 text-center">
-        <div className="inline-flex items-center gap-1.5 rounded-full border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground">
-          <span className="h-1.5 w-1.5 rounded-full bg-success" />
-          Production-ready CSE Final Year Project
-        </div>
         <h1 className="mt-6 text-balance text-5xl font-semibold tracking-tight sm:text-6xl">
           The modern operating system
           <br />
-          for your university library.
+          for the Dhaka City College library.
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground">
-          ULMS brings catalog management, borrowing, fines, and analytics into one clean,
+          DCCLMS brings catalog management, borrowing, fines, and analytics into one clean,
           role-based workspace for administrators, librarians, faculty, and students.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -111,7 +107,7 @@ function Landing() {
 
       <footer className="border-t">
         <div className="mx-auto max-w-6xl px-6 py-6 text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ULMS — University Library Management System.
+          © {new Date().getFullYear()}&nbsp;DCCLMS — Dhaka City College Library Management System.
         </div>
       </footer>
     </div>
