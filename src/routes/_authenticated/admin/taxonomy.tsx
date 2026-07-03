@@ -58,7 +58,7 @@ function TableCrud({ table, fields }: { table: "categories" | "authors" | "publi
       for (const f of fields) if (!values[f]?.trim()) throw new Error(`${f} required`);
       const row: Record<string, string> = {};
       fields.forEach((f) => (row[f] = values[f].trim()));
-      const { error } = await supabase.from(table).insert(row);
+      const { error } = await (supabase.from(table) as any).insert(row);
       if (error) throw error;
     },
     onSuccess: () => {
