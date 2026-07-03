@@ -25,8 +25,12 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
 });
 
 function Dashboard() {
-  const { user, primaryRole, fullName, roles } = useAuth();
+  const { user, primaryRole, fullName, roles, loading } = useAuth();
   const isStaff = roles.includes("admin") || roles.includes("librarian");
+
+  if (loading || !user) {
+    return <div className="p-6 text-sm text-muted-foreground">Loading…</div>;
+  }
 
   return (
     <div className="mx-auto max-w-7xl space-y-6">
@@ -41,10 +45,10 @@ function Dashboard() {
         </p>
       </div>
 
-      {isStaff ? <StaffStats /> : <MemberStats userId={user!.id} />}
+      {isStaff ? <StaffStats /> : <MemberStats userId={user.id} />}
 
       <div className="grid gap-6 lg:grid-cols-2">
-        {isStaff ? <RecentLoans /> : <MyActiveLoans userId={user!.id} />}
+        {isStaff ? <RecentLoans /> : <MyActiveLoans userId={user.id} />}
         <PopularBooks />
       </div>
 
