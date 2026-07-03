@@ -80,11 +80,13 @@ export const removeRole = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => roleSchema.parse(d))
   .handler(async ({ data, context }) => {
     const { supabase, userId } = context;
-    const { data: isAdmin } = await supabase.rpc("has_role", {
-      _user_id: userId,
-      _role: "admin",
-    });
-    if (!isAdmin) throw new Error("Admin only.");
+    const { data: adminRow } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", userId)
+      .eq("role", "admin")
+      .maybeSingle();
+    if (!adminRow) throw new Error("Admin only.");
     const { error } = await supabase
       .from("user_roles")
       .delete()
