@@ -13,8 +13,8 @@ export const Route = createFileRoute("/_authenticated/admin/audit-logs")({
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });
-    const { data: isAdmin } = await supabase.rpc("has_role", { _user_id: data.user.id, _role: "admin" });
-    if (!isAdmin) throw redirect({ to: "/dashboard" });
+    const { data: roleRow } = await supabase.from("user_roles").select("role").eq("user_id", data.user.id).eq("role", "admin").maybeSingle();
+    if (!roleRow) throw redirect({ to: "/dashboard" });
   },
   component: AuditPage,
 });
