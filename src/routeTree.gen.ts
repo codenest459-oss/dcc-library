@@ -24,8 +24,8 @@ import { Route as AuthenticatedAdminUsersRouteImport } from './routes/_authentic
 import { Route as AuthenticatedAdminTaxonomyRouteImport } from './routes/_authenticated/admin/taxonomy'
 import { Route as AuthenticatedAdminSettingsRouteImport } from './routes/_authenticated/admin/settings'
 import { Route as AuthenticatedAdminLoansRouteImport } from './routes/_authenticated/admin/loans'
-import { Route as AuthenticatedAdminBooksRouteImport } from './routes/_authenticated/admin/books'
 import { Route as AuthenticatedAdminAuditLogsRouteImport } from './routes/_authenticated/admin/audit-logs'
+import { Route as AuthenticatedAdminBooksIndexRouteImport } from './routes/_authenticated/admin/books.index'
 import { Route as AuthenticatedAdminBooksNewRouteImport } from './routes/_authenticated/admin/books.new'
 import { Route as AuthenticatedAdminBooksBookIdEditRouteImport } from './routes/_authenticated/admin/books.$bookId.edit'
 
@@ -107,28 +107,29 @@ const AuthenticatedAdminLoansRoute = AuthenticatedAdminLoansRouteImport.update({
   path: '/admin/loans',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
-const AuthenticatedAdminBooksRoute = AuthenticatedAdminBooksRouteImport.update({
-  id: '/admin/books',
-  path: '/admin/books',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
 const AuthenticatedAdminAuditLogsRoute =
   AuthenticatedAdminAuditLogsRouteImport.update({
     id: '/admin/audit-logs',
     path: '/admin/audit-logs',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedAdminBooksIndexRoute =
+  AuthenticatedAdminBooksIndexRouteImport.update({
+    id: '/admin/books/',
+    path: '/admin/books/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedAdminBooksNewRoute =
   AuthenticatedAdminBooksNewRouteImport.update({
-    id: '/new',
-    path: '/new',
-    getParentRoute: () => AuthenticatedAdminBooksRoute,
+    id: '/admin/books/new',
+    path: '/admin/books/new',
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedAdminBooksBookIdEditRoute =
   AuthenticatedAdminBooksBookIdEditRouteImport.update({
-    id: '/$bookId/edit',
-    path: '/$bookId/edit',
-    getParentRoute: () => AuthenticatedAdminBooksRoute,
+    id: '/admin/books/$bookId/edit',
+    path: '/admin/books/$bookId/edit',
+    getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
@@ -142,13 +143,13 @@ export interface FileRoutesByFullPath {
   '/profile': typeof AuthenticatedProfileRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/admin/audit-logs': typeof AuthenticatedAdminAuditLogsRoute
-  '/admin/books': typeof AuthenticatedAdminBooksRouteWithChildren
   '/admin/loans': typeof AuthenticatedAdminLoansRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/admin/taxonomy': typeof AuthenticatedAdminTaxonomyRoute
   '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/catalog/$bookId': typeof AuthenticatedCatalogBookIdRoute
   '/admin/books/new': typeof AuthenticatedAdminBooksNewRoute
+  '/admin/books/': typeof AuthenticatedAdminBooksIndexRoute
   '/admin/books/$bookId/edit': typeof AuthenticatedAdminBooksBookIdEditRoute
 }
 export interface FileRoutesByTo {
@@ -162,13 +163,13 @@ export interface FileRoutesByTo {
   '/profile': typeof AuthenticatedProfileRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/admin/audit-logs': typeof AuthenticatedAdminAuditLogsRoute
-  '/admin/books': typeof AuthenticatedAdminBooksRouteWithChildren
   '/admin/loans': typeof AuthenticatedAdminLoansRoute
   '/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/admin/taxonomy': typeof AuthenticatedAdminTaxonomyRoute
   '/admin/users': typeof AuthenticatedAdminUsersRoute
   '/catalog/$bookId': typeof AuthenticatedCatalogBookIdRoute
   '/admin/books/new': typeof AuthenticatedAdminBooksNewRoute
+  '/admin/books': typeof AuthenticatedAdminBooksIndexRoute
   '/admin/books/$bookId/edit': typeof AuthenticatedAdminBooksBookIdEditRoute
 }
 export interface FileRoutesById {
@@ -184,13 +185,13 @@ export interface FileRoutesById {
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/auth/reset-password': typeof AuthResetPasswordRoute
   '/_authenticated/admin/audit-logs': typeof AuthenticatedAdminAuditLogsRoute
-  '/_authenticated/admin/books': typeof AuthenticatedAdminBooksRouteWithChildren
   '/_authenticated/admin/loans': typeof AuthenticatedAdminLoansRoute
   '/_authenticated/admin/settings': typeof AuthenticatedAdminSettingsRoute
   '/_authenticated/admin/taxonomy': typeof AuthenticatedAdminTaxonomyRoute
   '/_authenticated/admin/users': typeof AuthenticatedAdminUsersRoute
   '/_authenticated/catalog/$bookId': typeof AuthenticatedCatalogBookIdRoute
   '/_authenticated/admin/books/new': typeof AuthenticatedAdminBooksNewRoute
+  '/_authenticated/admin/books/': typeof AuthenticatedAdminBooksIndexRoute
   '/_authenticated/admin/books/$bookId/edit': typeof AuthenticatedAdminBooksBookIdEditRoute
 }
 export interface FileRouteTypes {
@@ -206,13 +207,13 @@ export interface FileRouteTypes {
     | '/profile'
     | '/auth/reset-password'
     | '/admin/audit-logs'
-    | '/admin/books'
     | '/admin/loans'
     | '/admin/settings'
     | '/admin/taxonomy'
     | '/admin/users'
     | '/catalog/$bookId'
     | '/admin/books/new'
+    | '/admin/books/'
     | '/admin/books/$bookId/edit'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -226,13 +227,13 @@ export interface FileRouteTypes {
     | '/profile'
     | '/auth/reset-password'
     | '/admin/audit-logs'
-    | '/admin/books'
     | '/admin/loans'
     | '/admin/settings'
     | '/admin/taxonomy'
     | '/admin/users'
     | '/catalog/$bookId'
     | '/admin/books/new'
+    | '/admin/books'
     | '/admin/books/$bookId/edit'
   id:
     | '__root__'
@@ -247,13 +248,13 @@ export interface FileRouteTypes {
     | '/_authenticated/profile'
     | '/auth/reset-password'
     | '/_authenticated/admin/audit-logs'
-    | '/_authenticated/admin/books'
     | '/_authenticated/admin/loans'
     | '/_authenticated/admin/settings'
     | '/_authenticated/admin/taxonomy'
     | '/_authenticated/admin/users'
     | '/_authenticated/catalog/$bookId'
     | '/_authenticated/admin/books/new'
+    | '/_authenticated/admin/books/'
     | '/_authenticated/admin/books/$bookId/edit'
   fileRoutesById: FileRoutesById
 }
@@ -370,13 +371,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminLoansRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/admin/books': {
-      id: '/_authenticated/admin/books'
-      path: '/admin/books'
-      fullPath: '/admin/books'
-      preLoaderRoute: typeof AuthenticatedAdminBooksRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
     '/_authenticated/admin/audit-logs': {
       id: '/_authenticated/admin/audit-logs'
       path: '/admin/audit-logs'
@@ -384,19 +378,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminAuditLogsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin/books/': {
+      id: '/_authenticated/admin/books/'
+      path: '/admin/books'
+      fullPath: '/admin/books/'
+      preLoaderRoute: typeof AuthenticatedAdminBooksIndexRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/admin/books/new': {
       id: '/_authenticated/admin/books/new'
-      path: '/new'
+      path: '/admin/books/new'
       fullPath: '/admin/books/new'
       preLoaderRoute: typeof AuthenticatedAdminBooksNewRouteImport
-      parentRoute: typeof AuthenticatedAdminBooksRoute
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/admin/books/$bookId/edit': {
       id: '/_authenticated/admin/books/$bookId/edit'
-      path: '/$bookId/edit'
+      path: '/admin/books/$bookId/edit'
       fullPath: '/admin/books/$bookId/edit'
       preLoaderRoute: typeof AuthenticatedAdminBooksBookIdEditRouteImport
-      parentRoute: typeof AuthenticatedAdminBooksRoute
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
@@ -412,23 +413,6 @@ const AuthenticatedCatalogRouteChildren: AuthenticatedCatalogRouteChildren = {
 const AuthenticatedCatalogRouteWithChildren =
   AuthenticatedCatalogRoute._addFileChildren(AuthenticatedCatalogRouteChildren)
 
-interface AuthenticatedAdminBooksRouteChildren {
-  AuthenticatedAdminBooksNewRoute: typeof AuthenticatedAdminBooksNewRoute
-  AuthenticatedAdminBooksBookIdEditRoute: typeof AuthenticatedAdminBooksBookIdEditRoute
-}
-
-const AuthenticatedAdminBooksRouteChildren: AuthenticatedAdminBooksRouteChildren =
-  {
-    AuthenticatedAdminBooksNewRoute: AuthenticatedAdminBooksNewRoute,
-    AuthenticatedAdminBooksBookIdEditRoute:
-      AuthenticatedAdminBooksBookIdEditRoute,
-  }
-
-const AuthenticatedAdminBooksRouteWithChildren =
-  AuthenticatedAdminBooksRoute._addFileChildren(
-    AuthenticatedAdminBooksRouteChildren,
-  )
-
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedCatalogRoute: typeof AuthenticatedCatalogRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
@@ -437,11 +421,13 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedAdminAuditLogsRoute: typeof AuthenticatedAdminAuditLogsRoute
-  AuthenticatedAdminBooksRoute: typeof AuthenticatedAdminBooksRouteWithChildren
   AuthenticatedAdminLoansRoute: typeof AuthenticatedAdminLoansRoute
   AuthenticatedAdminSettingsRoute: typeof AuthenticatedAdminSettingsRoute
   AuthenticatedAdminTaxonomyRoute: typeof AuthenticatedAdminTaxonomyRoute
   AuthenticatedAdminUsersRoute: typeof AuthenticatedAdminUsersRoute
+  AuthenticatedAdminBooksNewRoute: typeof AuthenticatedAdminBooksNewRoute
+  AuthenticatedAdminBooksIndexRoute: typeof AuthenticatedAdminBooksIndexRoute
+  AuthenticatedAdminBooksBookIdEditRoute: typeof AuthenticatedAdminBooksBookIdEditRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -452,11 +438,14 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedAdminAuditLogsRoute: AuthenticatedAdminAuditLogsRoute,
-  AuthenticatedAdminBooksRoute: AuthenticatedAdminBooksRouteWithChildren,
   AuthenticatedAdminLoansRoute: AuthenticatedAdminLoansRoute,
   AuthenticatedAdminSettingsRoute: AuthenticatedAdminSettingsRoute,
   AuthenticatedAdminTaxonomyRoute: AuthenticatedAdminTaxonomyRoute,
   AuthenticatedAdminUsersRoute: AuthenticatedAdminUsersRoute,
+  AuthenticatedAdminBooksNewRoute: AuthenticatedAdminBooksNewRoute,
+  AuthenticatedAdminBooksIndexRoute: AuthenticatedAdminBooksIndexRoute,
+  AuthenticatedAdminBooksBookIdEditRoute:
+    AuthenticatedAdminBooksBookIdEditRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
