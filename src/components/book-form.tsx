@@ -48,7 +48,7 @@ export function BookForm({
   onSubmitAction,
 }: {
   mode: "create" | "edit";
-  initial?: Partial<BookValues> & Record<string, unknown>;
+  initial?: Record<string, unknown>;
   onSubmitAction: (values: BookValues, copiesToAdd: number) => Promise<void>;
 }) {
   const [values, setValues] = useState<BookValues>(empty);
