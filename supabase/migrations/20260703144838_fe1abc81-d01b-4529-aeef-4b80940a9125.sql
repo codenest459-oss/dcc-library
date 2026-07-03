@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.get_primary_role(uuid) FROM authenticated;
