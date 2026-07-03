@@ -17,7 +17,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export const Route = createFileRoute("/_authenticated/catalog")({
-  head: () => ({ meta: [{ title: "Catalog — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Catalog — DCCLMS" }] }),
   component: Catalog,
 });
 

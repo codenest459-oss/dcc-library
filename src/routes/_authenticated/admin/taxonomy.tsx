@@ -11,7 +11,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { EmptyState } from "@/components/empty-state";
 
 export const Route = createFileRoute("/_authenticated/admin/taxonomy")({
-  head: () => ({ meta: [{ title: "Taxonomy — ULMS Admin" }] }),
+  head: () => ({ meta: [{ title: "Taxonomy — DCCLMS Admin" }] }),
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });

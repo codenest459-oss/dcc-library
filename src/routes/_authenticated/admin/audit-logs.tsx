@@ -9,7 +9,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Badge } from "@/components/ui/badge";
 
 export const Route = createFileRoute("/_authenticated/admin/audit-logs")({
-  head: () => ({ meta: [{ title: "Audit logs — ULMS Admin" }] }),
+  head: () => ({ meta: [{ title: "Audit logs — DCCLMS Admin" }] }),
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });

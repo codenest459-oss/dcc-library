@@ -20,7 +20,7 @@ import { EmptyState } from "@/components/empty-state";
 import { format } from "date-fns";
 
 export const Route = createFileRoute("/_authenticated/admin/users")({
-  head: () => ({ meta: [{ title: "Users & Roles — ULMS Admin" }] }),
+  head: () => ({ meta: [{ title: "Users & Roles — DCCLMS Admin" }] }),
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });

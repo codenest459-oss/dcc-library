@@ -11,7 +11,7 @@ import { EmptyState } from "@/components/empty-state";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/_authenticated/my-loans")({
-  head: () => ({ meta: [{ title: "My loans — ULMS" }] }),
+  head: () => ({ meta: [{ title: "My loans — DCCLMS" }] }),
   component: MyLoans,
 });
 

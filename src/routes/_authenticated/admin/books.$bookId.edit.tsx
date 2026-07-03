@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 
 export const Route = createFileRoute("/_authenticated/admin/books/$bookId/edit")({
-  head: () => ({ meta: [{ title: "Edit book — ULMS Admin" }] }),
+  head: () => ({ meta: [{ title: "Edit book — DCCLMS Admin" }] }),
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });

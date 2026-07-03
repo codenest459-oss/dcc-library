@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/_authenticated/catalog/$bookId")({
-  head: () => ({ meta: [{ title: "Book details — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Book details — DCCLMS" }] }),
   component: BookDetail,
 });
 

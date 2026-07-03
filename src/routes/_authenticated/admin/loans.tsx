@@ -34,7 +34,7 @@ import { issueBook, returnBook } from "@/lib/loans.functions";
 import { searchBorrowers } from "@/lib/admin.functions";
 
 export const Route = createFileRoute("/_authenticated/admin/loans")({
-  head: () => ({ meta: [{ title: "Issue & Return — ULMS" }] }),
+  head: () => ({ meta: [{ title: "Issue & Return — DCCLMS" }] }),
   beforeLoad: async () => {
     const { data } = await supabase.auth.getUser();
     if (!data.user) throw redirect({ to: "/auth" });

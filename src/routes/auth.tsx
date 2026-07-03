@@ -19,8 +19,8 @@ export const Route = createFileRoute("/auth")({
   validateSearch: searchSchema,
   head: () => ({
     meta: [
-      { title: "Sign in — ULMS" },
-      { name: "description", content: "Access your ULMS library account." },
+      { title: "Sign in — DCCLMS" },
+      { name: "description", content: "Access your DCCLMS library account." },
     ],
   }),
   component: AuthPage,
@@ -44,7 +44,7 @@ function AuthPage() {
           <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
             <Library className="h-4 w-4" />
           </div>
-          <span className="text-sm font-semibold">ULMS</span>
+          <span className="text-sm font-semibold">DCCLMS</span>
         </Link>
         <div className="max-w-md">
           <h2 className="text-3xl font-semibold tracking-tight">
@@ -56,14 +56,14 @@ function AuthPage() {
           </p>
         </div>
         <span className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} ULMS
+          © {new Date().getFullYear()} DCCLMS
         </span>
       </div>
 
       <div className="flex items-center justify-center p-6">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle>Welcome to ULMS</CardTitle>
+            <CardTitle>Welcome to DCCLMS</CardTitle>
             <CardDescription>
               {mode === "signup"
                 ? "Create your account to get started."
